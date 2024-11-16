@@ -1,13 +1,11 @@
 // @ts-ignore
-import { add } from 'https://deno.land/x/fonction/mod.ts'
+import { add } from "https://deno.land/x/fonction/mod.ts";
 // @ts-ignore
-import { multiply } from 'https://deno.land/x/fonction/mod.ts'
+import { multiply } from "https://deno.land/x/fonction/mod.ts";
 // @ts-ignore
 import { Ask, Separator } from "@sallai/ask";
 
-
-
-const ask = new Ask(); 
+const ask = new Ask();
 
 const answers = await ask.prompt([
   {
@@ -22,8 +20,8 @@ const answers = await ask.prompt([
   },
 ]);
 
-
-const { toppings } = await ask.checkbox({
+const { toppings } = await ask.checkbox(
+  {
     name: "toppings",
     message: "Select pizza toppings:",
     choices: [
@@ -32,29 +30,28 @@ const { toppings } = await ask.checkbox({
       new Separator(),
       { message: "Pineapple", value: "pineapple" },
     ],
-  } as const);
+  } as const,
+);
 
-
-const { password } = await ask.password({
+const { password } = await ask.password(
+  {
     name: "password",
     message: "Enter your password:",
     mask: "*",
-  } as const);
+  } as const,
+);
 
-
-const { canDrive } = await ask.confirm({
+const { canDrive } = await ask.confirm(
+  {
     name: "canDrive",
     message: "Can you drive?",
-  } as const);
-  
-  console.log(canDrive);
-  
- 
-  
+  } as const,
+);
+
+console.log(canDrive);
 console.log(toppings);
 console.log(answers);
 console.log(password);
 
-
-console.log(add(2,3))
-console.log(multiply(3,9))
+console.log(add(2, 3));
+console.log(multiply(3, 9));
